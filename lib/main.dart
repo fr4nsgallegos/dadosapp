@@ -3,118 +3,53 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(
     MaterialApp(
-      home: MyApp(),
+      home: DadosPage(),
       debugShowCheckedModeBanner: false,
     ),
   );
 }
 
-class MyApp extends StatefulWidget {
+class DadosPage extends StatefulWidget {
+  const DadosPage({super.key});
+
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<DadosPage> createState() => _DadosPageState();
 }
 
-class _MyAppState extends State<MyApp> {
-  int num = 100;
-  int x = 0;
-  int y = 0;
-  void cambiarNumero() {
-    // num += 100;
-    num = num + 100;
-  }
-
-  void sumar2() {
-    print("------------------");
-    x += 2;
-    setState(() {});
-    // print(variable);
-  }
-
-  int sumar1(int variable) {
-    return variable += 1;
-  }
-
+class _DadosPageState extends State<DadosPage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            setState(() {
-              x = 0;
-            });
-          },
-          child: Text("HOLA"),
+        appBar: AppBar(
+          title: Text("DiceApp"),
         ),
-        appBar: AppBar(),
-        body: Column(
-          children: [
-            Center(
-              child: Text(
-                num.toString(),
-                style: TextStyle(fontSize: 150),
+        body: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: 50,
               ),
-            ),
-            Container(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {
-                  cambiarNumero();
-                  setState(() {});
-                },
-                child: Text("cambiar a 200"),
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text(
-                  "X= ${x.toString()}",
-                  style: TextStyle(fontSize: 50),
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  // PRIMERA FORMA DE APLICAR BORDE CIRCULAR A CONTAINER
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(20),
+                  ),
+                  //FORMA DE APLICAR CIRCULAR BORDER A CONTAINER
+                  // shape: BoxShape.circle,
                 ),
-                Text(
-                  "Y= ${y.toString()}",
-                  style: TextStyle(fontSize: 50),
-                )
-              ],
-            ),
-            ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  x = sumar1(x);
-                });
-                print(x);
-                // setState(() {});
-              },
-              child: Text("Sumar a x"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                y = sumar1(y);
-                setState(() {});
-              },
-              child: Text("Sumar a y"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                sumar2();
-                // sumar2(y);
-                setState(() {});
-              },
-              child: Text("Sumar a ambos"),
-            )
+                width: 200,
+                height: 200,
 
-            // Expanded(
-            //   child: Image.asset(
-            //     "assets/images/imagen1.jpeg",
-            //     fit: BoxFit.contain,
-            //   ),
-            // ),
-            // CircleAvatar(
-            //   radius: 100,
-            //   backgroundImage: AssetImage("assets/images/imagen1.jpeg"),
-            // ),
-          ],
+                // child: Image.asset("assets/images/dice1.png"),
+              ),
+              ElevatedButton(onPressed: () {}, child: Text("Shuffle"))
+            ],
+          ),
         ),
       ),
     );
