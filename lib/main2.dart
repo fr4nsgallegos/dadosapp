@@ -1,0 +1,3 @@
+void hola() {}
+
+class Hola {}
