@@ -71,6 +71,10 @@ class _DadosPageState extends State<DadosPage> {
                 },
                 child: Text("Random"),
               ),
+              Text(
+                n.toString(),
+                style: TextStyle(fontSize: 100),
+              ),
             ],
           ),
         ),
