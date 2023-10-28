@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(
-    home: MyApp(),
-  ));
+  runApp(
+    MaterialApp(
+      home: MyApp(),
+      debugShowCheckedModeBanner: false,
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -11,8 +14,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(),
+        body: Column(
+          children: [
+            Expanded(
+              child: Image.asset(
+                "assets/images/imagen1.jpeg",
+                fit: BoxFit.contain,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
