@@ -25,6 +25,10 @@ class MyApp extends StatelessWidget {
                 fit: BoxFit.contain,
               ),
             ),
+            CircleAvatar(
+              radius: 100,
+              backgroundImage: AssetImage("assets/images/imagen1.jpeg"),
+            ),
           ],
         ),
       ),
