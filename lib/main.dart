@@ -23,11 +23,11 @@ class _MyAppState extends State<MyApp> {
     num = num + 100;
   }
 
-  void sumar2(int variable) {
+  void sumar2() {
     print("------------------");
-    variable += 2;
+    x += 2;
     setState(() {});
-    print(variable);
+    // print(variable);
   }
 
   int sumar1(int variable) {
@@ -38,6 +38,14 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            setState(() {
+              x = 0;
+            });
+          },
+          child: Text("HOLA"),
+        ),
         appBar: AppBar(),
         body: Column(
           children: [
@@ -47,12 +55,15 @@ class _MyAppState extends State<MyApp> {
                 style: TextStyle(fontSize: 150),
               ),
             ),
-            ElevatedButton(
-              onPressed: () {
-                cambiarNumero();
-                setState(() {});
-              },
-              child: Text("cambiar a 200"),
+            Container(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {
+                  cambiarNumero();
+                  setState(() {});
+                },
+                child: Text("cambiar a 200"),
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -86,8 +97,8 @@ class _MyAppState extends State<MyApp> {
             ),
             ElevatedButton(
               onPressed: () {
-                sumar2(x);
-                sumar2(y);
+                sumar2();
+                // sumar2(y);
                 setState(() {});
               },
               child: Text("Sumar a ambos"),
