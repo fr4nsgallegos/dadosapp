@@ -35,20 +35,30 @@ class _DadosPageState extends State<DadosPage> {
               SizedBox(
                 height: 40,
               ),
-              Container(
-                padding: EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: Colors.red,
-                  // PRIMERA FORMA DE APLICAR BORDE CIRCULAR A CONTAINER
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20),
+              GestureDetector(
+                onDoubleTap: () {
+                  n = 1;
+                  setState(() {});
+                },
+                onTap: () {
+                  n = Random().nextInt(6) + 1;
+                  setState(() {});
+                },
+                child: Container(
+                  padding: EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: Colors.red,
+                    // PRIMERA FORMA DE APLICAR BORDE CIRCULAR A CONTAINER
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(20),
+                    ),
+                    //FORMA DE APLICAR CIRCULAR BORDER A CONTAINER
+                    // shape: BoxShape.circle,
                   ),
-                  //FORMA DE APLICAR CIRCULAR BORDER A CONTAINER
-                  // shape: BoxShape.circle,
+                  width: 200,
+                  height: 200,
+                  child: Image.asset("assets/images/dice$n.png"),
                 ),
-                width: 200,
-                height: 200,
-                child: Image.asset("assets/images/dice$n.png"),
               ),
               SizedBox(
                 height: 24,
