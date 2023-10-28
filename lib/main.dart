@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,6 +19,7 @@ class DadosPage extends StatefulWidget {
 }
 
 class _DadosPageState extends State<DadosPage> {
+  int n = 1;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -30,9 +33,10 @@ class _DadosPageState extends State<DadosPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
-                height: 50,
+                height: 40,
               ),
               Container(
+                padding: EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   color: Colors.red,
                   // PRIMERA FORMA DE APLICAR BORDE CIRCULAR A CONTAINER
@@ -44,10 +48,19 @@ class _DadosPageState extends State<DadosPage> {
                 ),
                 width: 200,
                 height: 200,
-
-                // child: Image.asset("assets/images/dice1.png"),
+                child: Image.asset("assets/images/dice$n.png"),
               ),
-              ElevatedButton(onPressed: () {}, child: Text("Shuffle"))
+              SizedBox(
+                height: 24,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  n = Random().nextInt(6) + 1;
+                  print(n);
+                  setState(() {});
+                },
+                child: Text("Random"),
+              ),
             ],
           ),
         ),
