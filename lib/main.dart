@@ -24,12 +24,10 @@ class _MyAppState extends State<MyApp> {
   }
 
   void sumar2(int variable) {
-    setState(() {
-      print("------------------");
-      print(variable);
-      variable += 2;
-      print(variable);
-    });
+    print("------------------");
+    variable += 2;
+    setState(() {});
+    print(variable);
   }
 
   int sumar1(int variable) {
